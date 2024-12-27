@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // Import Mapbox CSS
 const Atlas = () => {
   const mapContainer = useRef(null); // Reference for the map container
   const map = useRef(null); // Reference for the map instance
-  const accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN; // Replace with your Mapbox token
+  const accessToken = 'pk.eyJ1IjoiamdhY3RvbiIsImEiOiJjbTU2anU2bXUzOHprMmpzZGkyeG1qdDAwIn0.AmJ3E50rHnyunLSGN9Go-Q'; // Mapbox token
 
   useEffect(() => {
     mapboxgl.accessToken = accessToken;
