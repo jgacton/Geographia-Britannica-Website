@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from './Header';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Analytics } from "@vercel/analytics/react"
 
 const Layout = ({ children }) => {
   return (
