@@ -25,6 +25,7 @@ const Atlas = () => {
       map.current.addSource('boundaries', {
         type: 'geojson',
         data: '/data/local-auth-bounds.geojson', // Ensure this file exists in the public/data folder
+        //data: '/data/Westminster-Constituencies-2024.geojson', // Ensure this file exists in the public/data folder
       });
 
       // Add the layer to display boundaries
@@ -41,6 +42,20 @@ const Atlas = () => {
           visibility: 'visible',
         },
       });
+
+      /*map.current.addLayer({
+        id: '2024 Westminster Constituencies',
+        type: 'fill',
+        source: 'boundaries',
+        paint: {
+          'fill-color': '#447a1c',
+          'fill-opacity': 0.5,
+          'fill-outline-color': '#000',
+        },
+        layout: {
+          visibility: 'visible',
+        },
+      });*/
     });
 
     return () => map.current.remove(); // Clean up the map on component unmount
@@ -56,15 +71,27 @@ const Atlas = () => {
     }
   };
 
+  // Toggle layer visibility
+  /*const toggleLayerVisibility2 = () => {
+    const visibility = map.current.getLayoutProperty('2024 Westminster Constituencies', 'visibility');
+    if (visibility === 'visible') {
+      map.current.setLayoutProperty('2024 Westminster Constituencies', 'visibility', 'none');
+    } else {
+      map.current.setLayoutProperty('2024 Westminster Constituencies', 'visibility', 'visible');
+    }
+  };*/
+
   // Navigate back to the homepage
   const navigateHome = () => {
     window.location.href = '/';
   };
 
+/* Add to div below:
+<button onClick={toggleLayerVisibility2} id="menu-button">Toggle Westminster Constituencies</button>*/
   return (
     <>
       <div>
-        <button onClick={toggleLayerVisibility} id="menu-button">Toggle Boundaries</button>
+        <button onClick={toggleLayerVisibility} id="menu-button">Local Authority Boundaries</button>
       </div>
       <button id="homeButton" onClick={navigateHome}>Home</button>
       <div
